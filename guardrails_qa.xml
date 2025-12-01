@@ -1,0 +1,15 @@
+<guardrails>
+  <output>
+    <string name="answer" description="Answer to the user's question." />
+  </output>
+
+  <validators>
+    <regex name="no_pii" pattern="^(?!.*(?:\\d{10}|@)).*$" error_message="Output may contain PII." />
+  </validators>
+
+  <prompt>
+    {{ user_query }}
+    Context: {{ context }}
+    Answer: {{ answer }}
+  </prompt>
+</guardrails>
